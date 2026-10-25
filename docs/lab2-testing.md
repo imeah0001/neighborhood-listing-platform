@@ -50,6 +50,9 @@ Category: Accessibility
 
 Result: 25 of 25 automated accessibility checks passed.
 
+Follow-up Lighthouse Navigation audit on the live Vercel preview:
+Accessibility score: 100/100 (October 25, 2026).
+
 A previous Navigation-mode audit did not produce a valid result
 because of a browser-cache timeout and a NO_FCP error.
 
@@ -60,6 +63,5 @@ Lighthouse also identified 10 items requiring manual review.
 
 - Recheck the updated Save button with keyboard and screen-reader tools.
 - Repeat the accessibility audit after the final code changes.
-- Record a standard numerical accessibility score if Navigation
-  mode can be completed successfully.
+- Numerical Lighthouse accessibility score recorded: 100/100.
 - Complete partner review before merging the pull request.
