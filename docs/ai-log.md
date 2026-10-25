@@ -15,3 +15,81 @@ ChatGPT helped me verify commands using real terminal outputs, including success
 
 ### Reflection
 I found ChatGPT more useful for hands-on development because I could test each instruction before continuing. Gemini was helpful for understanding why the technologies are used together.
+
+## Week 2 Lab 2 — ChatGPT vs. Gemini Critique
+
+Date: October 25, 2026
+
+### ChatGPT
+
+- Context: Step-by-step development and review of the PropertyCard,
+  SponsorBanner, SearchFilters, and PropertyExplorer components.
+- Strength identified: Semantic HTML, labeled controls, descriptive
+  image text, visible focus indicators, and responsive layouts.
+- Risk identified: Sponsor content and images are still placeholders.
+- Recommendation: Verify sponsor assets and permission requirements
+  before final submission.
+- Decision: Accepted the recommendation for follow-up. Sponsor
+  verification has not yet been completed.
+
+### Gemini
+
+- Prompt: Critique the Next.js, TypeScript, and Tailwind real-estate
+  listing components using an implementation summary. Give one
+  strength, one risk, and one specific testable recommendation.
+- Strength identified: Semantic HTML, keyboard accessibility,
+  and explicit ARIA state management.
+- Risk identified: Dynamic filtered results might not be
+  announced to screen-reader users.
+- Recommendation: Add aria-live="polite" and verify that a
+  screen reader announces the updated result count.
+- Decision: Rejected adding another live region because
+  PropertyExplorer.tsx already contains role="status" and
+  aria-live="polite". Accepted the recommendation to perform
+  a manual screen-reader test.
+
+### Comparison and Verification
+
+ChatGPT focused on implementation and sponsor-content readiness.
+Gemini focused on screen-reader notifications.
+
+The live-region implementation was verified directly using:
+grep -n -C 3 'aria-live' src/components/PropertyExplorer.tsx
+
+ESLint passed. Lighthouse Snapshot passed 25 of 25 automated
+accessibility checks. Manual screen-reader testing remains pending.
+
+## Week 2 Lab 2 — Google AI Studio TypeScript Interface Review
+
+Date: October 25, 2026
+
+### Prompt
+Review the TypeScript prop interfaces for PropertyCard,
+SponsorBanner, and SearchFilters. Provide required versus optional
+props, one type-safety issue, and a verification checklist.
+Do not generate complete components.
+
+### Suggestions Accepted
+- PropertyCard requires property: Property.
+- SponsorBanner requires sponsor: Sponsor.
+- SearchFilters requires an onApplyFilters callback.
+- Check Property ID types and filter callback compatibility.
+
+### Suggestions Rejected or Not Applied
+- Optional isSaved and onToggleSave props were unnecessary because
+  PropertyCard manages its Save state internally.
+- Optional className, priority, and initialFilters props were not
+  required for the current component architecture.
+- AI Studio proposed a location field, but the actual filter
+  contract uses query and propertyType.
+- Image fields in the existing types are named imageUrl.
+
+### Verification
+Inspected src/types/index.ts and the existing component interfaces.
+Property.id is typed as string.
+PropertyCardProps requires property: Property.
+SponsorBannerProps requires sponsor: Sponsor.
+SearchFiltersProps requires a callback accepting query and
+propertyType strings.
+
+No AI-generated code was copied into the application.

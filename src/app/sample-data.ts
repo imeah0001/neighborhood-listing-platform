@@ -1,0 +1,58 @@
+import type { Property, Sponsor } from "../types";
+
+export const sampleProperties: Property[] = [
+  {
+    id: "property-1",
+    title: "Minorca Drive Residence",
+    address: "1221 Minorca Dr",
+    city: "Pacific Palisades",
+    state: "CA",
+    price: 1250000,
+    bedrooms: 3,
+    bathrooms: 2,
+    sqft: 2100,
+    propertyType: "single-family",
+    imageUrl: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=960",
+    imageAlt: "Illustrative photograph of a residential house, not the actual listing",
+    listingUrl: "https://www.realtor.com/realestateandhomes-detail/1221-Minorca-Dr_Pacific-Palisades_CA_90272_M26930-01342",
+  },
+  {
+    id: "property-2",
+    title: "Paseo De Oro Residence",
+    address: "1492 Paseo De Oro",
+    city: "Pacific Palisades",
+    state: "CA",
+    price: 1450000,
+    bedrooms: 4,
+    bathrooms: 3,
+    sqft: 2450,
+    propertyType: "single-family",
+    imageUrl: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=960",
+    imageAlt: "Illustrative photograph of a house with a front lawn, not the actual listing",
+    listingUrl: "https://www.realtor.com/realestateandhomes-detail/1492-Paseo-De-Oro_Pacific-Palisades_CA_90272_M12211-34305",
+  },
+  {
+    id: "property-3",
+    title: "Amalfi Drive Residence",
+    address: "1550 Amalfi Dr",
+    city: "Pacific Palisades",
+    state: "CA",
+    price: 1750000,
+    bedrooms: 4,
+    bathrooms: 3,
+    sqft: 2800,
+    propertyType: "single-family",
+    imageUrl: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=960",
+    imageAlt: "Illustrative photograph of a two-story house, not the actual listing",
+    listingUrl: "https://www.realtor.com/realestateandhomes-detail/1550-Amalfi-Dr_Pacific-Palisades_CA_90272_M11354-53513",
+  },
+];
+
+export const sampleSponsor: Sponsor = {
+  id: "sponsor-demo",
+  name: "Example Neighborhood Sponsor",
+  headline: "Demonstration sponsorship placement for accessibility testing.",
+  imageUrl: "/file.svg",
+  websiteUrl: "https://example.com",
+  altText: "Generic placeholder icon for the demonstration sponsor",
+};
