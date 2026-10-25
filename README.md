@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Neighborhood Listing Platform
 
-## Getting Started
+An AI-assisted neighborhood property listing platform built with Next.js, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## Project Purpose
 
-```bash
+This project provides a foundation for helping residents discover local properties, connect with neighborhood businesses, and access helpful community information.
+
+## Homepage Features
+
+- **Property Listings:** Explore properties in your neighborhood.
+- **Neighborhood Sponsors:** Discover businesses supporting the local community.
+- **Voice Help:** Preview the concept of accessible voice assistance.
+
+These cards introduce planned platform features; the current version is an application shell.
+
+## Technology Stack
+
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+- ESLint
+- Git and GitHub
+- GitHub Actions
+- Vercel
+
+## Live Website
+
+https://neighborhood-listing-platform-flax.vercel.app
+
+## Run Locally
+
+Install dependencies:
+
+npm install
+
+Start the development server:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Verification
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Run the automated checks:
 
-## Learn More
+npm run lint
+npm run build
 
-To learn more about Next.js, take a look at the following resources:
+GitHub Actions also runs lint and build checks.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## AI Collaboration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+See [docs/ai-log.md](docs/ai-log.md) for documented use of ChatGPT, Gemini, and Google AI Studio.
 
-## Deploy on Vercel
+## Development Workflow
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Development was completed on the `setup/app-shell` feature branch and submitted through GitHub Pull Request #1.
