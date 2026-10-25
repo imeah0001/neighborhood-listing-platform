@@ -56,3 +56,65 @@ See [docs/ai-log.md](docs/ai-log.md) for documented use of ChatGPT, Gemini, and 
 ## Development Workflow
 
 Development was completed on the `setup/app-shell` feature branch and submitted through GitHub Pull Request #1.
+
+## Week 2 Lab 2 — Component Hierarchy
+
+The homepage uses semantic HTML and reusable React components.
+
+```text
+Home Page (src/app/page.tsx)
+└── main
+    ├── header
+    │   ├── h1: Neighborhood Listing Platform
+    │   ├── Introduction
+    │   └── Sample-data disclaimer
+    │
+    ├── PropertyExplorer
+    │   ├── SearchFilters
+    │   │   └── section
+    │   │       ├── h2: Search properties
+    │   │       └── form
+    │   │           ├── Labeled location input
+    │   │           ├── Labeled property-type select
+    │   │           └── Apply filters button
+    │   │
+    │   ├── SponsorBanner
+    │   │   └── aside
+    │   │       ├── Sponsored disclosure
+    │   │       ├── Sponsor image and business name
+    │   │       └── Sponsor website link
+    │   │
+    │   └── Property Listings
+    │       └── section
+    │           ├── h2: Available properties
+    │           ├── Live results count
+    │           └── Responsive listing grid
+    │               └── PropertyCard (repeated)
+    │                   └── article
+    │                       ├── Descriptive property image
+    │                       ├── Save toggle button
+    │                       ├── Price
+    │                       ├── h3: Property title
+    │                       ├── address
+    │                       ├── Property facts list
+    │                       └── View listing link
+    │
+    └── More Platform Features
+        └── section
+            ├── Property Listings
+            ├── Neighborhood Sponsors
+            └── Voice Help
+```
+
+### Responsive Layout
+
+The property listing grid uses these Tailwind CSS classes:
+
+- Mobile (375px): `grid-cols-1` — one column.
+- Tablet (768px): `md:grid-cols-2` — two columns.
+- Desktop (1280px): `lg:grid-cols-3` — three columns.
+
+### Testing Evidence
+
+See [Lab 2 Testing Results](docs/lab2-testing.md) for responsive,
+functional, keyboard-accessibility, and Lighthouse testing evidence.
