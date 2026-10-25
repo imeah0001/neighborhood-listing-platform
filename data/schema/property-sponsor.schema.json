@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/property-sponsor.schema.json",
+  "title": "PropertySponsor",
+  "description": "Relationship between fictional properties and local sponsors",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "property_id",
+    "sponsor_id"
+  ],
+  "properties": {
+    "property_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sponsor_id": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

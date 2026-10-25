@@ -4,20 +4,21 @@ import { useState } from "react";
 import PropertyCard from "./PropertyCard";
 import SponsorBanner from "./SponsorBanner";
 import SearchFilters from "./SearchFilters";
-import { sampleProperties, sampleSponsor } from "../app/sample-data";
+import { sampleSponsor } from "../app/sample-data";
+import type { Property } from "../types";
 
 interface Filters {
   query: string;
   propertyType: string;
 }
 
-export default function PropertyExplorer() {
+export default function PropertyExplorer({ properties }: { properties: Property[] }) {
   const [filters, setFilters] = useState<Filters>({
     query: "",
     propertyType: "all",
   });
 
-  const visibleProperties = sampleProperties.filter((property) => {
+  const visibleProperties = properties.filter((property) => {
     const searchText = [
       property.title,
       property.address,

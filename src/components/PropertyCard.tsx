@@ -63,15 +63,21 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           <li>{property.propertyType}</li>
         </ul>
 
-        <a
-          href={property.listingUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-5 inline-flex min-h-11 items-center justify-center rounded-lg bg-indigo-700 px-4 py-2 font-semibold text-white hover:bg-indigo-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700"
-        >
-          View listing for {property.address}
-          <span className="sr-only"> (opens in a new tab)</span>
-        </a>
+        {property.listingUrl.startsWith("https://example.org/") ? (
+          <p className="mt-5 rounded-lg border border-slate-200 bg-slate-100 px-4 py-3 text-center text-sm font-medium text-slate-700">
+            Fictional example — no live listing available
+          </p>
+        ) : (
+          <a
+            href={property.listingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex min-h-11 items-center justify-center rounded-lg bg-indigo-700 px-4 py-2 font-semibold text-white hover:bg-indigo-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700"
+          >
+            View listing for {property.address}
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
+        )}
       </div>
     </article>
   );

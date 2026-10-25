@@ -93,3 +93,71 @@ SearchFiltersProps requires a callback accepting query and
 propertyType strings.
 
 No AI-generated code was copied into the application.
+
+## Lab 3: JSON Schemas and Runtime Validation
+
+Date: October 25, 2026
+
+### Google AI Studio
+
+Prompt goal:
+Generate five fictional property listings using the required
+Property JSON Schema fields.
+
+Output used:
+- Five structured JSON property listings.
+- Property IDs property-002 through property-006.
+- Prices, property types, amenities, and sponsor references.
+
+Changes and limitations:
+- The generated image and listing URLs used example.org placeholders.
+- Those URLs were not treated as real property information.
+- A local SVG illustration was used for unavailable photographs.
+- The original generated JSON was preserved for verification.
+
+Verification:
+- All five records passed Ajv runtime validation.
+- Seven automated generated-property tests passed.
+- Property IDs were checked for uniqueness.
+
+### ChatGPT
+
+Prompt goal:
+Build strict data contracts, test AI-generated records,
+and connect them safely to the existing Next.js website.
+
+Output used:
+- Property, Sponsor, and PropertySponsor JSON Schemas.
+- Ajv validation and automated tests.
+- A validated property loader for the Next.js homepage.
+- Property filter updates and placeholder-image handling.
+- Architecture Decision Record documentation.
+
+Changes and decisions:
+- Preserved the existing Lab 2 website components.
+- Mapped JSON field names to the existing TypeScript interface.
+- Changed the dropdown to support house, condo,
+  townhouse, and apartment.
+- Rejected displaying unvalidated records in the UI.
+
+Verification:
+- Five property-validation tests passed.
+- Seven generated-property tests passed.
+- ESLint passed.
+- Next.js production build and TypeScript checks passed.
+- The House filter displayed exactly two properties.
+- Local property illustrations rendered successfully.
+
+### Reflection
+
+Google AI Studio was useful for generating structured sample
+data, but its output still required independent verification.
+
+ChatGPT helped turn the data into working application code
+and repeatable tests.
+
+The important lesson was that valid JSON syntax, TypeScript
+types, and working URLs are different guarantees. Runtime
+validation is still necessary before displaying external data.
+
+Lab 3 commit: Pending.
