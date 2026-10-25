@@ -1,0 +1,24 @@
+{
+  "property_id": "property-001",
+  "title": "Fictional Maple Street Home",
+  "street_address": "123 Example Lane",
+  "city": "Los Angeles",
+  "state": "CA",
+  "zip_code": "90001",
+  "price": 750000,
+  "bedrooms": 3,
+  "bathrooms": 2,
+  "square_feet": 1650,
+  "property_type": "house",
+  "amenities": [
+    "parking",
+    "laundry",
+    "garden"
+  ],
+  "image_url": "https://example.org/property-001.jpg",
+  "image_alt": "Fictional house with a front garden",
+  "listing_url": "https://example.org/listings/property-001",
+  "local_sponsors": [
+    "sponsor-001"
+  ]
+}

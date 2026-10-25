@@ -74,9 +74,10 @@ export default function SearchFilters({
             className="min-h-11 w-full rounded-lg border border-slate-400 bg-white px-3 py-2 text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700"
           >
             <option value="all">All property types</option>
-            <option value="single-family">Single-family home</option>
+            <option value="house">House</option>
             <option value="condo">Condominium</option>
             <option value="townhouse">Townhouse</option>
+            <option value="apartment">Apartment</option>
           </select>
         </div>
 

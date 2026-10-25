@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/property.schema.json",
+  "title": "Property",
+  "description": "Strict contract for fictional property listings",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "property_id",
+    "title",
+    "street_address",
+    "city",
+    "state",
+    "zip_code",
+    "price",
+    "bedrooms",
+    "bathrooms",
+    "square_feet",
+    "property_type",
+    "amenities",
+    "image_url",
+    "image_alt",
+    "listing_url",
+    "local_sponsors"
+  ],
+  "properties": {
+    "property_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3
+    },
+    "street_address": {
+      "type": "string",
+      "minLength": 5
+    },
+    "city": {
+      "type": "string",
+      "minLength": 2
+    },
+    "state": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "zip_code": {
+      "type": "string",
+      "pattern": "^[0-9]{5}$"
+    },
+    "price": {
+      "type": "number",
+      "minimum": 0
+    },
+    "bedrooms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "bathrooms": {
+      "type": "number",
+      "minimum": 0
+    },
+    "square_feet": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "property_type": {
+      "type": "string",
+      "enum": ["house", "condo", "townhouse", "apartment"]
+    },
+    "amenities": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "parking",
+          "pool",
+          "garden",
+          "air_conditioning",
+          "laundry",
+          "balcony",
+          "fireplace",
+          "solar_panels"
+        ]
+      }
+    },
+    "image_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "image_alt": {
+      "type": "string",
+      "minLength": 5
+    },
+    "listing_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "local_sponsors": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

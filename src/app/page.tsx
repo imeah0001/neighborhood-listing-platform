@@ -1,6 +1,9 @@
 import PropertyExplorer from "../components/PropertyExplorer";
+import { getValidatedProperties } from "./validated-properties";
 
 export default function Home() {
+  const properties = getValidatedProperties();
+
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-10 text-slate-900 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
@@ -20,7 +23,7 @@ export default function Home() {
           </p>
         </header>
 
-        <PropertyExplorer />
+        <PropertyExplorer properties={properties} />
 
         <section
           aria-labelledby="features-heading"

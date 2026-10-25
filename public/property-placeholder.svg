@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600">
+  <rect width="960" height="600" fill="#e8edf5"/>
+  <circle cx="760" cy="130" r="58" fill="#f5d48a"/>
+  <path d="M0 420 Q240 320 480 420 T960 420 V600 H0Z" fill="#c9d9cf"/>
+  <rect x="310" y="260" width="340" height="220" rx="8" fill="#ffffff"/>
+  <path d="M270 280 L480 120 L690 280" fill="none" stroke="#394b6a" stroke-width="28" stroke-linejoin="round"/>
+  <rect x="445" y="355" width="70" height="125" fill="#8396b5"/>
+  <rect x="350" y="315" width="65" height="65" fill="#b9dce9"/>
+  <rect x="545" y="315" width="65" height="65" fill="#b9dce9"/>
+  <text x="480" y="535" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="bold" fill="#26354e">Illustrative Property Image</text>
+  <text x="480" y="570" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#52647d">Fictional listing - photo unavailable</text>
+</svg>

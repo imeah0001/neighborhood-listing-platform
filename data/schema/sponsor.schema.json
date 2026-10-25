@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/sponsor.schema.json",
+  "title": "Sponsor",
+  "description": "Strict contract for fictional local sponsors",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sponsor_id",
+    "name",
+    "headline",
+    "image_url",
+    "alt_text",
+    "website_url"
+  ],
+  "properties": {
+    "sponsor_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 2
+    },
+    "headline": {
+      "type": "string",
+      "minLength": 5
+    },
+    "image_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "alt_text": {
+      "type": "string",
+      "minLength": 5
+    },
+    "website_url": {
+      "type": "string",
+      "format": "uri"
+    }
+  }
+}
