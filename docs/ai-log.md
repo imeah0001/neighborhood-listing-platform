@@ -161,3 +161,47 @@ types, and working URLs are different guarantees. Runtime
 validation is still necessary before displaying external data.
 
 Lab 3 commit: Pending.
+
+## Lab 4: Discovery and Product Requirements
+Date: October 26, 2026
+Team: E - Echo
+
+### AI Prompts and Tasks
+The following are prompt summaries, not verbatim transcripts.
+
+1. ChatGPT: Draft eight neutral stakeholder interview questions
+   covering workflow, audience, approvals, success, and accessibility.
+2. Gemini: Critique the questions for bias, leading assumptions,
+   double-barreled wording, and privacy concerns.
+3. Google AI Studio: Analyze simulated notes N1-N8, identify themes,
+   cite source notes, and suggest candidate requirements.
+4. ChatGPT: Help organize hypothetical personas, user stories,
+   acceptance criteria, MVP planning, and approval workflow.
+
+### Useful Outputs and Human Decisions
+- Revised questions 3, 5, and 6 after Gemini's critique.
+- Retained five AI-identified themes with source-note references.
+- Created two hypothetical personas and eight proposed user stories.
+- Documented high-priority Given/When/Then scenarios.
+- Proposed a Week 8 MVP and content approval process.
+
+### Rejected or Qualified Suggestions
+- Rejected treating simulated notes as real interviews.
+- Rejected claiming an analytics dashboard was directly requested.
+- Did not assume automated synchronization was needed.
+- Did not accept logging, notifications, or approval roles
+  as verified stakeholder requirements.
+
+### Human Verification
+- Compared AI themes against simulated notes N1-N8.
+- Labeled all personas and requirements as hypothetical.
+- Kept unresolved questions visible in the discovery documents.
+- No real stakeholder interviews have occurred.
+- Instructor approval for simulated discovery remains pending.
+- No outreach will occur without instructor approval and consent.
+
+### Evidence
+See docs/discovery/ai-theme-audit.md,
+docs/discovery/interview-guide.md,
+docs/discovery/user-stories.md, and
+docs/discovery/acceptance-criteria.md.
