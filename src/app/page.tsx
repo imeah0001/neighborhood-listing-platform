@@ -1,3 +1,5 @@
+import ServicesExplorer from "../components/ServicesExplorer";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-slate-50 px-6 py-16 text-slate-900">
@@ -42,6 +44,8 @@ export default function Home() {
             </p>
           </article>
         </section>
+
+        <ServicesExplorer />
       </div>
     </main>
   );
