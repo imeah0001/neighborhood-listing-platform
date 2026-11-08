@@ -1,23 +1,10 @@
+import { getSupabaseServerConfig } from "../../../lib/supabaseServer";
+
+import { createServiceSchema } from "../../../schemas/service";
+
 
 // CIS 3610 Midterm - Merchant Services API
 // Server-side Next.js route; no service-role credentials used.
-
-type Config = {
-  url: string;
-  key: string;
-};
-
-function getConfig(): Config | null {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_PUBLISHABLE_KEY;
-
-  if (!url || !key) return null;
-
-  return {
-    url: url.replace(/\/+$/, ""),
-    key,
-  };
-}
 
 function error(message: string, status: number) {
   return Response.json({ error: message }, { status });
@@ -26,7 +13,7 @@ function error(message: string, status: number) {
 // GET /api/services
 // Anonymous visitors can see approved listings only.
 export async function GET() {
-  const config = getConfig();
+  const config = getSupabaseServerConfig();
 
   if (!config) {
     return error("Database is not configured", 503);
@@ -69,7 +56,7 @@ export async function GET() {
 // POST /api/services
 // Authenticated providers can submit their own drafts.
 export async function POST(request: Request) {
-  const config = getConfig();
+  const config = getSupabaseServerConfig();
 
   if (!config) {
     return error("Database is not configured", 503);
@@ -129,57 +116,22 @@ export async function POST(request: Request) {
       return error("Expected a JSON object", 400);
     }
 
-    const data = body as Record<string, unknown>;
+    const parsed = createServiceSchema.safeParse(body);
 
-    const allowedFields = [
-      "title",
-      "hourly_rate",
-      "duration_minutes",
-      "coverage_radius_miles",
-    ];
-
-    if (
-      Object.keys(data).some(
-        (field) => !allowedFields.includes(field)
-      )
-    ) {
-      return error("Unexpected input field", 400);
+    if (!parsed.success) {
+      return Response.json(
+        {
+          error: "Invalid service payload",
+          details: parsed.error.issues.map((issue) => ({
+            path: issue.path.join("."),
+            message: issue.message,
+          })),
+        },
+        { status: 400 }
+      );
     }
 
-    if (
-      typeof data.title !== "string" ||
-      data.title.trim().length < 5 ||
-      data.title.trim().length > 120
-    ) {
-      return error("Invalid service title", 400);
-    }
-
-    if (
-      typeof data.hourly_rate !== "number" ||
-      !Number.isFinite(data.hourly_rate) ||
-      data.hourly_rate < 0 ||
-      data.hourly_rate > 10000
-    ) {
-      return error("Invalid hourly rate", 400);
-    }
-
-    if (
-      typeof data.duration_minutes !== "number" ||
-      !Number.isInteger(data.duration_minutes) ||
-      data.duration_minutes < 15 ||
-      data.duration_minutes > 1440
-    ) {
-      return error("Invalid duration", 400);
-    }
-
-    if (
-      typeof data.coverage_radius_miles !== "number" ||
-      !Number.isInteger(data.coverage_radius_miles) ||
-      data.coverage_radius_miles < 1 ||
-      data.coverage_radius_miles > 500
-    ) {
-      return error("Invalid coverage radius", 400);
-    }
+    const data = parsed.data;
 
     // Do not trust provider_id or status from the client.
     const service = {
