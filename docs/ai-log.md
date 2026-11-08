@@ -15,3 +15,24 @@ ChatGPT helped me verify commands using real terminal outputs, including success
 
 ### Reflection
 I found ChatGPT more useful for hands-on development because I could test each instruction before continuing. Gemini was helpful for understanding why the technologies are used together.
+
+## CIS 3610 Midterm Practical Examination — Version B
+
+The entries below summarize AI-assisted midterm work. Prompt summaries are not represented as verbatim quotations where the original wording was not retained. All technical results listed as verified were checked through Terminal, GitHub, the application, or Supabase.
+
+| Step / Tool | Prompt Summary | Model Output Used | Model Output Rejected & Rationale | Verification Method | Associated Git Commit |
+|---|---|---|---|---|---|
+| Requirements / ChatGPT | Guide the implementation of the local merchant services and booking midterm one step at a time | Three user stories with Given/When/Then acceptance criteria and database/API traceability | No specific rejected model output recorded | Reviewed requirements against the examination specification | 6b84fe4 |
+| Database / ChatGPT | Help implement the required Supabase relational schema and security policies | Versioned SQL migration for five tables, constraints, and RLS policies | Did not treat SQL generation as proof that permissions worked; database execution and security checks were required | Migration executed in Supabase; five tables and RLS policies inspected; unauthorized insertion rejected with SQLSTATE 42501 | 42a25c9 |
+| Application / ChatGPT | Guide development of approved service discovery and appointment booking | Accessible service cards, services explorer, booking form, and Next.js API integration | Did not rely on a successful build alone as evidence of booking persistence | Approved listing appeared on the website; booking submitted successfully and matching database row verified | 7849c0b |
+| Validation / ChatGPT | Add strict Zod service validation and required server-only configuration without disrupting the existing API | src/schemas/service.ts, src/lib/supabaseServer.ts, and structured validation errors | Retired the earlier manual service-payload validation in favor of a reusable strict Zod contract | npm run lint and npm run build both passed after the update | 2dcb250 |
+| Security audit / ChatGPT | Document actual positive and negative authorization test outcomes | docs/security-audit.md with role-based test matrix and recorded evidence | Rejected presenting unperformed role tests as passing; unverified scenarios remain explicitly marked NOT TESTED | Compared the audit entries with Supabase test results, saved booking records, and GitHub CI evidence | 2dcb250 |
+
+### AI Verification and Limitations
+
+- AI-generated code and explanations were reviewed through local builds, Supabase checks, and GitHub results.
+- Successful lint and build checks do not by themselves prove security or accessibility.
+- The end-to-end appointment booking was independently verified in the Supabase bookings table.
+- Provider isolation, booking read isolation, and administrator-role tests remain incomplete where indicated in docs/security-audit.md.
+- Exact historical prompt text should be added from original conversation records when available rather than reconstructed as invented quotations.
+- The Gemini and Google AI Studio entries above this section describe earlier laboratory work; they are not claimed as additional midterm interactions.
